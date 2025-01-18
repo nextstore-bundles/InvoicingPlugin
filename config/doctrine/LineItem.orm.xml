@@ -8,11 +8,11 @@
 
         <field name="name" />
         <field name="quantity" type="integer" />
-        <field name="unitNetPrice" column="unit_price" type="integer" />
-        <field name="discountedUnitNetPrice" column="discounted_unit_net_price" type="integer" nullable="true" />
-        <field name="subtotal" type="integer" />
-        <field name="taxTotal" column="tax_total" type="integer" />
-        <field name="total" type="integer" />
+        <field name="unitNetPrice" column="unit_price" type="bigint" />
+        <field name="discountedUnitNetPrice" column="discounted_unit_net_price" type="bigint" nullable="true" />
+        <field name="subtotal" type="bigint" />
+        <field name="taxTotal" column="tax_total" type="bigint" />
+        <field name="total" type="bigint" />
         <field name="variantCode" column="variant_code" nullable="true" />
         <field name="variantName" column="variant_name" nullable="true" />
         <field name="taxRate" column="tax_rate" nullable="true" />
