@@ -1,24 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <mapped-superclass name="Sylius\InvoicingPlugin\Entity\LineItem" table="sylius_invoicing_plugin_line_item">
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping
+    xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+    <mapped-superclass
+        name="Sylius\InvoicingPlugin\Entity\LineItem"
+        table="sylius_invoicing_plugin_line_item"
+    >
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
 
         <field name="name" />
         <field name="quantity" type="integer" />
-        <field name="unitNetPrice" column="unit_price" type="integer" />
-        <field name="discountedUnitNetPrice" column="discounted_unit_net_price" type="integer" nullable="true" />
-        <field name="subtotal" type="integer" />
-        <field name="taxTotal" column="tax_total" type="integer" />
-        <field name="total" type="integer" />
+        <field name="unitNetPrice" column="unit_price" type="bigint" />
+        <field
+            name="discountedUnitNetPrice"
+            column="discounted_unit_net_price"
+            type="bigint"
+            nullable="true"
+        />
+        <field name="subtotal" type="bigint" />
+        <field name="taxTotal" column="tax_total" type="bigint" />
+        <field name="total" type="bigint" />
         <field name="variantCode" column="variant_code" nullable="true" />
         <field name="variantName" column="variant_name" nullable="true" />
         <field name="taxRate" column="tax_rate" nullable="true" />
 
-        <many-to-one field="invoice" target-entity="Sylius\InvoicingPlugin\Entity\InvoiceInterface" inversed-by="lineItems">
-            <join-column name="invoice_id" nullable="false" on-delete="CASCADE" />
+        <many-to-one
+            field="invoice"
+            target-entity="Sylius\InvoicingPlugin\Entity\InvoiceInterface"
+            inversed-by="lineItems"
+        >
+            <join-column
+                name="invoice_id"
+                nullable="false"
+                on-delete="CASCADE"
+            />
         </many-to-one>
     </mapped-superclass>
 </doctrine-mapping>

@@ -87,7 +87,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-2.0": "2.0-dev"
+            "dev-nextstore-2.0": "2.0-dev"
         }
     },
     "prefer-stable": true
